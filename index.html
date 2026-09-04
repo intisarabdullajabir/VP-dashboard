@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPN Vibration Assessment</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- WELCOME SCREEN -->
+        <section id="welcome-screen" class="screen active">
+            
+
+            <div class="logo">
+        
+                DPN
+            </div>
+
+            <h1>Vibration Perception Assessment</h1>
+        
+
+            <p class="description">
+                A Vibration based sensory assessment
+                for  Diabetic Peripheral Neuropathy.
+            </p>
+
+            <button id="start-btn" class="primary-btn">
+                Start Assessment
+            </button>
+
+            <div class="connection-status">
+                <span class="status-dot"></span>
+                Device Connected
+            </div>
+
+        </section>
+
+
+        <!-- TESTING SCREEN -->
+        <section id="test-screen" class="screen">
+
+            <div class="top-bar">
+                <span>DPN ASSESSMENT</span>
+                <span id="trial-counter">01 / 18</span>
+            </div>
+
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <div class="question-area">
+
+                <p class="instruction">
+                    Please respond after the stimulus.
+                </p>
+
+                <h1>
+                    Did you feel<br>
+                    the vibration?
+                </h1>
+
+            </div>
+
+            <div class="response-buttons">
+
+                <button id="yes-btn" class="response-btn yes">
+                    <span>YES</span>
+                    <small>I felt it</small>
+                </button>
+
+                <button id="no-btn" class="response-btn no">
+                    <span>NO</span>
+                    <small>I did not feel it</small>
+                </button>
+
+            </div>
+
+            <p id="test-status" class="test-status">
+                Waiting for response
+            </p>
+
+        </section>
+
+
+        <!-- PROCESSING SCREEN -->
+        <section id="processing-screen" class="screen">
+
+            <div class="processing-icon">
+                ✓
+            </div>
+
+            <h1>Response recorded</h1>
+
+            <p>
+                Preparing the next trial...
+            </p>
+
+        </section>
+
+
+        <!-- RESULTS SCREEN -->
+        <section id="results-screen" class="screen">
+
+            <div class="results-header">
+
+    <div class="complete-icon">
+        ✓
+    </div>
+
+    <h1>Assessment Complete</h1>
+
+    <p>18 of 18 trials completed</p>
+
+</div>
+
+
+<!-- OVERALL CONDITION -->
+
+<div class="overall-card">
+
+    <p class="section-label">
+        OVERALL CONDITION
+    </p>
+
+    <div id="overall-result" class="overall-result">
+        —
+    </div>
+
+    <p id="overall-summary">
+        Assessment summary
+    </p>
+
+</div>
+
+
+<!-- NERVE ASSESSMENT -->
+
+<div class="section-heading">
+
+    <p class="section-label">
+        NERVE ASSESSMENT
+    </p>
+
+</div>
+
+
+<div class="nerve-grid">
+
+    <!-- MEDIAL -->
+
+    <div class="nerve-card">
+
+        <span class="nerve-name">
+            MEDIAL NERVE
+        </span>
+
+        <strong id="medial-score">
+            —
+        </strong>
+
+        <div id="medial-result" class="nerve-result">
+            —
+        </div>
+
+    </div>
+
+
+    <!-- LATERAL -->
+
+    <div class="nerve-card">
+
+        <span class="nerve-name">
+            LATERAL NERVE
+        </span>
+
+        <strong id="lateral-score">
+            —
+        </strong>
+
+        <div id="lateral-result" class="nerve-result">
+            —
+        </div>
+
+    </div>
+
+
+    <!-- TIBIAL -->
+
+    <div class="nerve-card">
+
+        <span class="nerve-name">
+            TIBIAL NERVE
+        </span>
+
+        <strong id="tibial-score">
+            —
+        </strong>
+
+        <div id="tibial-result" class="nerve-result">
+            —
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- POINT RESULTS -->
+
+<div class="section-heading">
+
+    <p class="section-label">
+        POINT RESULTS
+    </p>
+
+</div>
+
+<div id="point-results" class="point-results">
+</div>
+
+
+<!-- TRIAL RECORD -->
+
+<div class="section-heading">
+
+    <p class="section-label">
+        TRIAL RECORD
+    </p>
+
+</div>
+
+
+<div class="trial-table-wrapper">
+
+    <table class="trial-table">
+
+        <thead>
+
+            <tr>
+                <th>Trial</th>
+                <th>Point</th>
+                <th>Stimulus</th>
+                <th>Patient</th>
+                <th>Result</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="trial-results">
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- NEW ASSESSMENT -->
+
+<button id="new-test-btn" class="primary-btn">
+    New Assessment
+</button>
+
+        </section>
+
+    </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,612 @@
+/* ==========================================
+   DPN VIBRATION ASSESSMENT
+   CLEAN LIGHT MEDICAL THEME
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================================
+   MAIN APP CONTAINER
+   ========================================== */
+
+.app {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 860px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 40px 24px;
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================
+   SCREENS (LIGHT CARDS)
+   ========================================== */
+
+.screen {
+    display: none;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 44px 36px;
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   WELCOME SCREEN
+   ========================================== */
+
+#welcome-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#welcome-screen.active {
+    display: flex;
+}
+
+.logo {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+#welcome-screen h1 {
+    max-width: 650px;
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+}
+
+.description {
+    max-width: 480px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #64748b;
+    margin-bottom: 32px;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.primary-btn {
+    border: none;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   CONNECTION STATUS
+   ========================================== */
+
+.connection-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: #000000;
+    border: 1px solid #e2e8f0;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+}
+
+/* ==========================================
+   TEST SCREEN
+   ========================================== */
+
+#test-screen {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 48px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #0f172a;
+    border-radius: inherit;
+    transition: width 0.35s ease;
+}
+
+.question-area {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.instruction {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.question-area h1 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #0f172a;
+}
+
+/* ==========================================
+   RESPONSE BUTTONS
+   ========================================== */
+
+.response-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.response-btn {
+    min-height: 130px;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    background: #ffffff;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.response-btn span {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.response-btn small {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.response-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.response-btn.yes:hover {
+    border-color: #10b981;
+    background: #f0fdf4;
+}
+
+.response-btn.no:hover {
+    border-color: #ef4444;
+    background: #fef2f2;
+}
+
+.test-status {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 24px;
+}
+
+/* ==========================================
+   PROCESSING SCREEN
+   ========================================== */
+
+#processing-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#processing-screen.active {
+    display: flex;
+}
+
+.processing-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #f0fdf4;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    border: 1px solid #bbf7d0;
+}
+
+#processing-screen h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+#processing-screen p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==========================================
+   RESULTS SCREEN
+   ========================================== */
+
+.results-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.complete-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: #f0fdf4;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    border: 1px solid #bbf7d0;
+}
+
+.results-header h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.results-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==========================================
+   SECTION HEADINGS
+   ========================================== */
+
+.section-heading {
+    margin: 32px 0 14px;
+}
+
+.section-label {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   OVERALL CONDITION CARD
+   ========================================== */
+
+.overall-card {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.overall-result {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin: 8px 0;
+}
+
+.overall-result.status-present { color: #059669; }
+.overall-result.status-reduced { color: #d97706; }
+.overall-result.status-absent  { color: #dc2626; }
+
+.overall-card p:last-child {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* ==========================================
+   NERVE GRID
+   ========================================== */
+
+.nerve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.nerve-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.nerve-name {
+    display: block;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.nerve-card strong {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: #0f172a;
+}
+
+.nerve-result {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.nerve-result.status-present { color: #059669; }
+.nerve-result.status-reduced { color: #d97706; }
+.nerve-result.status-absent  { color: #dc2626; }
+
+/* ==========================================
+   POINT RESULTS
+   ========================================== */
+
+.point-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.point-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.point-code {
+    color: #475569;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.point-card h3 {
+    margin-top: 2px;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.point-score {
+    text-align: right;
+}
+
+.point-score strong {
+    display: block;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.point-score span {
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* Status-based text indicators */
+.point-card.status-present .point-score span {
+    color: #059669;
+}
+
+.point-card.status-reduced .point-score span {
+    color: #d97706;
+}
+
+.point-card.status-absent .point-score span {
+    color: #dc2626;
+}
+
+/* ==========================================
+   TRIAL TABLE
+   ========================================== */
+
+.trial-table-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow-x: auto;
+}
+
+.trial-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+.trial-table th {
+    text-align: left;
+    padding: 14px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.trial-table td {
+    padding: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 13px;
+    color: #334155;
+}
+
+.trial-table td small {
+    display: block;
+    margin-top: 2px;
+    color: #94a3b8;
+}
+
+.applied     { color: #059669; font-weight: 800; font-size: 12px; }
+.not-applied { color: #94a3b8; font-weight: 800; font-size: 12px; }
+.correct     { color: #059669; font-weight: 800; font-size: 12px; }
+.incorrect   { color: #dc2626; font-weight: 800; font-size: 12px; }
+
+/* ==========================================
+   NEW ASSESSMENT BUTTON
+   ========================================== */
+
+#new-test-btn {
+    display: block;
+    margin: 32px auto 10px;
+}
+
+/* ==========================================
+   VANTA HALO BACKGROUND
+   ========================================== */
+
+body > canvas {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    z-index: 0 !important;
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+   ========================================== */
+
+@media (max-width: 700px) {
+    .app {
+        padding: 20px 12px;
+    }
+
+    .screen {
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    .progress-container {
+        margin-bottom: 36px;
+    }
+
+    .response-buttons,
+    .nerve-grid,
+    .point-results {
+        grid-template-columns: 1fr;
+    }
+
+    .response-btn {
+        min-height: 110px;
+    }
+}
